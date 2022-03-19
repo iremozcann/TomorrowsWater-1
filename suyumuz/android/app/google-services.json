@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "124694537648",
+    "project_id": "tomorrows-water",
+    "storage_bucket": "tomorrows-water.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124694537648:android:c9bf69817c90e2cc0fa275",
+        "android_client_info": {
+          "package_name": "com.fmobey.suyumuz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124694537648-tr2ut1cg3nm0hmpf0ea2q2dm6uo0iigh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4iNQX2yyTXptcnIOmAh-G6QN--fgaxHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124694537648-tr2ut1cg3nm0hmpf0ea2q2dm6uo0iigh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
