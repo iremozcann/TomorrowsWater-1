@@ -2,13 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:suyumuz/dataPage.dart';
 import 'package:suyumuz/main.dart';
 import 'package:suyumuz/model/model.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-class MyApp1 extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF151026);
@@ -56,6 +57,19 @@ class _MyHomePageState extends State<MyHomePage> {
           preferredSize:
               Size.fromHeight(MediaQuery.of(context!).size.height * 0.09),
           child: AppBar(
+            actions: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DataPage()),
+                      );
+                    },
+                    child: Icon(Icons.account_balance_wallet_outlined),
+                  )),
+            ],
             backgroundColor: Color.fromARGB(255, 15, 0, 44),
             leading: IconButton(
               icon: Icon(
@@ -93,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context!).size.height * 0.02,
+                height: MediaQuery.of(context!).size.height * 0.1,
               ),
               Center(
                 child: Text(
@@ -138,12 +152,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context!).size.height * 0.02,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
                     height: MediaQuery.of(context!).size.height * 0.1,
-                    width: MediaQuery.of(context!).size.height * 0.23,
+                    width: MediaQuery.of(context!).size.width * 0.44,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(69, 138, 129, 156),
                         shape: BoxShape.rectangle,
@@ -153,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.center,
                     child: Container(
                       height: MediaQuery.of(context!).size.height * 0.08,
-                      width: MediaQuery.of(context!).size.height * 0.21,
+                      width: MediaQuery.of(context!).size.width * 0.4,
                       decoration: BoxDecoration(
                           color: Color.fromARGB(255, 63, 0, 180),
                           shape: BoxShape.rectangle,
@@ -203,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     height: MediaQuery.of(context!).size.height * 0.1,
-                    width: MediaQuery.of(context!).size.height * 0.23,
+                    width: MediaQuery.of(context!).size.width * 0.44,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(69, 138, 129, 156),
                         shape: BoxShape.rectangle,
@@ -213,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.center,
                     child: Container(
                       height: MediaQuery.of(context!).size.height * 0.08,
-                      width: MediaQuery.of(context!).size.height * 0.21,
+                      width: MediaQuery.of(context!).size.width * 0.4,
                       decoration: BoxDecoration(
                           color: Color.fromARGB(255, 63, 0, 180),
                           shape: BoxShape.rectangle,
@@ -259,41 +276,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   )
                 ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context!).size.height * 0.06,
-              ),
-              Center(
-                child: Container(
-                  child: SfCartesianChart(
-                    primaryXAxis: CategoryAxis(),
-                    title: ChartTitle(text: 'Annual Water Consumption Table'),
-                    legend: Legend(isVisible: false),
-                    tooltipBehavior: _tooltipBehavior,
-                    series: <LineSeries<ConsumptionAmount, String>>[
-                      LineSeries<ConsumptionAmount, String>(
-                          dataSource: <ConsumptionAmount>[
-                            ConsumptionAmount('Jan', snapshot.value['ocak']),
-                            ConsumptionAmount('Feb', snapshot.value['subat']),
-                            ConsumptionAmount('Mar', snapshot.value['mart']),
-                            ConsumptionAmount('Apr', snapshot.value['nisan']),
-                            ConsumptionAmount('May', snapshot.value['mayis']),
-                            ConsumptionAmount('Jun', snapshot.value['haziran']),
-                            ConsumptionAmount('Jul', snapshot.value['temmuz']),
-                            ConsumptionAmount('Aug', snapshot.value['agus']),
-                            ConsumptionAmount('Sep', snapshot.value['eylul']),
-                            ConsumptionAmount('Oct', snapshot.value['ekim']),
-                            ConsumptionAmount('Nov', snapshot.value['kasim']),
-                            ConsumptionAmount('Dec', snapshot.value['aralik']),
-                          ],
-                          xValueMapper: (ConsumptionAmount sales, _) =>
-                              sales.year,
-                          yValueMapper: (ConsumptionAmount sales, _) =>
-                              sales.amount,
-                          dataLabelSettings: DataLabelSettings(isVisible: true))
-                    ],
-                  ),
-                ),
               ),
             ],
           ),

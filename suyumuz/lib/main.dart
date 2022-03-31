@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           .signInWithEmailAndPassword(
               email: username2.toString(), password: password2.toString());
       if (UserCredential != null) {
-        return runApp(MyApp1());
+        return runApp(MainPage());
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
