@@ -7,8 +7,8 @@
 #include <FirebaseESP32.h>
 
 
-#define FIREBASE_HOST "https://utkuhoca-bitirme-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "63jc3IZMtazqwQ9flbHVrLNiPGXLtfXN3q2f26g4"
+#define FIREBASE_HOST "https://tomorrows-water-default-rtdb.firebaseio.com/"
+#define FIREBASE_AUTH "HkExRVJjtbZcOon8o3bRCRi38EKeDTox3Gt66pmY"
 #define WIFI_SSID "fmobey"
 #define WIFI_PASSWORD "q1w2e3asd"
 #define LED_BUILTIN 2
